@@ -89,26 +89,48 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getWinner(int[] pl1_arr, int[] pl2_arr) {
+       int ctr1 = 0, ctr2 = 0;
         Arrays.sort(pl1_arr);
         Arrays.sort(pl2_arr);
         String pl1 = getArrayString(pl1_arr);
         String pl2 = getArrayString(pl2_arr);
         for (int[] arrs : arr) {
-            System.out.println(getArrayString(arrs) + "===================" + pl1);
-            if (pl1.contains(getArrayString(arrs))) {
-                view.setText(R.string.pl1);
-                view.setVisibility(View.VISIBLE);
+            ctr1 = 0;
+            System.out.println(getArrayString(arrs));
+            for (char ch : getArrayString(arrs).toCharArray()) {
+                System.out.println(ch + "======" + pl1);
+                if (pl1.contains(ch + "")) {
+                    ctr1++;
+                    System.out.println(ctr1);
+                }
+                if (ctr1 == 3) {
+
+                    view.setText(R.string.pl1);
+                    view.setVisibility(View.VISIBLE);
+                }
+
             }
         }
         for (int[] arrs : arr) {
-            System.out.println(getArrayString(arrs) + "===================" + pl2);
+            ctr2 = 0;
+            System.out.println(getArrayString(arrs));
 
-            if (pl2.contains(getArrayString(arrs))) {
-                view.setText(R.string.pl2);
-                view.setVisibility(View.VISIBLE);
+            for (char ch : getArrayString(arrs).toCharArray()) {
+                System.out.println(ch + "======" + pl2);
+
+                if (pl2.contains(ch + "")) {
+                    ctr2++;
+                    System.out.println(ctr2);
+                }
+                if (ctr2 == 3) {
+                    view.setText(R.string.pl2);
+                    view.setVisibility(View.VISIBLE);
+                }
+
 
             }
         }
+
 
     }
 
