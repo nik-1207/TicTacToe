@@ -3,7 +3,6 @@ package com.example.tictactoe;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -114,15 +113,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void restart(View view) {
-        GridLayout gl = findViewById(R.id.gridlayout);
-        for (int i = 0; i < gl.getChildCount(); i++) {
-            ImageView ctr = (ImageView) gl.getChildAt(i);
-            ctr.setImageDrawable(null);
-        }
-        k = 0;
-        id = new int[9];
-        pl1 = new Player(1);
-        pl2 = new Player(2);
+        finish();
+        startActivity(getIntent());
     }
 
     public String getArrayString(int[] arr) {
